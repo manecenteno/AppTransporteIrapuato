@@ -1,0 +1,166 @@
+<div class="container-fluid text-white pt-3 pb-3">
+
+    <form action="/editar-ruta/{{ruta._id}}" class="color-form p-4 rounded" method="POST">
+
+        {{! Datos generales }}
+        <div class="row">
+            <div class="col-8">
+                <label for="nombreRuta" class="form-label fw-bold">Nombre de la ruta</label>
+            </div>
+
+            <div class="col">
+                <label for="numeroRuta" class="form-label fw-bold">Número</label>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-8">
+                <textarea class="form-control shadow-lg" id="nombreRuta" name="nombreRuta">{{ruta.nombre}}</textarea>
+            </div>
+
+            <div class="col">
+                <input class="form-control shadow-lg" id="numeroRuta" name="numeroRuta" value={{ruta.numero}}
+                    required />
+            </div>
+        </div>
+
+
+        {{!-- Item Tabs --}}
+
+        <ul class="nav nav-tabs mb-4 " id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active bg-success text-white" id="home-tab" data-bs-toggle="tab"
+                    data-bs-target="#Ida" type="button" role="tab" aria-controls="Ida" aria-selected="true">Recorrido 1
+                    (Ida)</button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link bg-danger text-white" id="profile-tab" data-bs-toggle="tab"
+                    data-bs-target="#Vuelta" type="button" role="tab" aria-controls="Vuelta"
+                    aria-selected="false">Recorrido 2
+                    (Vuelta)</button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link bg-dark text-white" id="contact-tab" data-bs-toggle="tab"
+                    data-bs-target="#Alternativos" type="button" role="tab" aria-controls="Alternativos"
+                    aria-selected="false">Recorridos
+                    Alternativos</button>
+            </li>
+        </ul>
+
+        {{!-- Contenido del tab --}}
+        <div class="tab-content" id="myTabContent">
+
+            {{!-- Ida --}}
+            <div class="tab-pane fade show active" id="Ida" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+
+                <label for="trayectoIda" class="form-label fw-bold">Coordenadas recorrido
+                    de ida</label>
+                <textarea class="form-control shadow-lg mb-3" id="trayectoIda" rows="5"
+                    name="trayectoIda">{{ruta.recorrido1.trayecto}}</textarea>
+
+                <label for="paradasIda" class="form-label fw-bold">Coordenadas de las
+                    paradas oficiales</label>
+                <textarea class="form-control shadow-lg" id="paradasIda" name="paradasIda"
+                    rows="5">{{ruta.recorrido1.paradas}}</textarea>
+
+                <div class="row mt-3">
+
+                    {{!-- Primer servicio --}}
+                    <div class="col-md col-12 p-3">
+                        <label for="primerServicioIda" class="form-label fw-bold adjust-center">Primer
+                            servicio</label>
+                        <input class="form-control shadow-lg" id="primerServicioIda" name="primerServicioIda" rows="5"
+                            value={{ruta.recorrido1.primerServicio}}>
+                        <label for="primerServicioIda" class="adjust-center">a.m</label>
+                    </div>
+
+                    {{!-- Intervalo del servicio --}}
+                    <div class="col-md col-12 p-3">
+                        <label for="intervaloSalidaIda" class="form-label fw-bold adjust-center">Intervalo entre
+                            cada
+                            servicio</label>
+                        <input class="form-control shadow-lg" id="intervaloSalidaIda" name="intervaloSalidaIda" rows="5"
+                            value={{ruta.recorrido1.intervaloServicio}}>
+                        <label for="intervaloSalidaIda" class="adjust-center">minutos</label>
+                    </div>
+
+                    {{!-- Ultimo servicio --}}
+                    <div class="col-md col-12 p-3">
+                        <label for="ultimoServicioIda" class="form-label fw-bold adjust-center">Último
+                            servicio</label>
+                        <input class="form-control shadow-lg" id="ultimoServicioIda" name="ultimoServicioIda" rows="5"
+                            value={{ruta.recorrido1.ultimoServicio}}>
+                        <label for="ultimoServicioIda" class="adjust-center">p.m</label>
+                    </div>
+                </div>
+            </div>
+
+            {{!-- Vuelta --}}
+            <div class="tab-pane fade" id="Vuelta" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+                <label for="trayectoVuelta" class="form-label fw-bold">Coordenadas recorrido
+                    de vuelta</label>
+                <textarea class="form-control shadow-lg mb-3" id="trayectoVuelta" rows="5"
+                    name="trayectoVuelta"> {{ruta.recorrido2.trayecto}}</textarea>
+
+                <label for="paradasVuelta" class="form-label fw-bold">Coordenadas de las
+                    paradas oficiales</label>
+                <textarea class="form-control shadow-lg" id="paradasVuelta" name="paradasVuelta"
+                    rows="5">{{ruta.recorrido2.paradas}}</textarea>
+
+                <div class="row mt-3">
+
+                    {{!-- Primer servicio --}}
+                    <div class="col-md col-12 p-3">
+                        <label for="primerServicioVuelta" class="form-label fw-bold adjust-center">Primer
+                            servicio</label>
+                        <input class="form-control shadow-lg" id="primerServicioVuelta" name="primerServicioVuelta"
+                            rows="5" value={{ruta.recorrido2.primerServicio}}>
+                        <label for="primerServicioVuelta" class="adjust-center">a.m</label>
+                    </div>
+
+                    {{!-- Intervalo del servicio --}}
+                    <div class="col-md col-12 p-3">
+                        <label for="intervaloSalidaVuelta" class="form-label fw-bold adjust-center">Intervalo entre
+                            cada
+                            servicio</label>
+                        <input class="form-control shadow-lg" id="intervaloSalidaVuelta" name="intervaloSalidaVuelta"
+                            rows="5" value={{ruta.recorrido2.intervaloServicio}}>
+                        <label for="intervaloSalidaVuelta" class="adjust-center">minutos</label>
+                    </div>
+
+                    {{!-- Ultimo servicio --}}
+                    <div class="col-md col-12 p-3">
+                        <label for="ultimoServicioVuelta" class="form-label fw-bold adjust-center">Último
+                            servicio</label>
+                        <input class="form-control shadow-lg" id="ultimoServicioVuelta" name="ultimoServicioVuelta"
+                            rows="5" value={{ruta.recorrido2.ultimoServicio}}>
+                        <label for="ultimoServicioVuelta" class="adjust-center">p.m</label>
+                    </div>
+                </div>
+            </div>
+
+            {{!-- Alternativos --}}
+            <div class="tab-pane fade mb-3" id="Alternativos" role="tabpanel" aria-labelledby="contact-tab"
+                tabindex="0">
+
+                <label for="trayectoAltIda" class="form-label fw-bold">Coordenadas
+                    recorrido alternativo de ida</label>
+                <textarea class="form-control shadow-lg mb-3" id="trayectoAltIda" name="trayectoAltIda"
+                    rows="5">{{ruta.recorridoAlternativo1.trayecto}}</textarea>
+
+                <label for="trayectoAltVuelta" class="form-label fw-bold">Coordenadas
+                    recorrido alternativo de vuelta</label>
+                <textarea class="form-control shadow-lg" id="trayectoAltVuelta" name="trayectoAltVuelta"
+                    rows="5">{{ruta.recorridoAlternativo2.trayecto}}</textarea>
+
+            </div>
+
+            {{!-- Guardar --}}
+            <button type="submit" class="btn btn-primary shadow-lg fw-bold mb-3 mt-2">Guardar</button>
+        </div>
+
+    </form>
+</div>

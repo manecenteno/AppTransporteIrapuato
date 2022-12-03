@@ -1,0 +1,83 @@
+<head>
+    {{! Leaflet CSS y JS }}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+
+    <script defer src="/js/botones.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css" />
+    <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.0/MarkerCluster.Default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+</head>
+
+<button class="btn-scroll" id="btnArriba">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<a href="#map" class="btn btn-success btn-mapa bi bi-map" id="btnMapa"></a>
+
+<div class="container-fluid text-justify">
+
+    {{! Info de la pagina }}
+    <div class="accordion pt-3" id="acordeonTrayecto">
+        <div class="accordion-item">
+            <h5 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button fs-10 text-bg-success collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelTrayecto" aria-expanded="false" aria-controls="panelTrayecto">
+                    Trayecto de las rutas
+                </button>
+            </h5>
+            <div id="panelTrayecto" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body bg-info bg-opacity-50 border border-info rounded-bottom fs-10">
+                    <p>Aquí podrás consultar el recorrido que realizan algunas rutas del
+                        <strong>Sistema de Transporte Público de Irapuato. 🍓</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{! Seleccion de las rutas }}
+    <div class="mb-3 bg-info bg-opacity-25 border border-info rounded p-2 mt-3 text-light">
+        <label for="listaRutas">Selecciona la ruta:</label>
+        <div class="input-group mt-2 mb-3" id="preSelect">
+            <select name="listaRutas" class="form-select w-100" id="listaRutas">
+                <option value="">Buscar las rutas</option>
+                {{#each rutas}}
+                <option value="{{nombre}}">{{numero}} {{nombre}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="m-3 mt-1 alert alert-primary" role="alert" id="msg"><i class="bi bi-info-circle"></i>
+    Primero selecciona una ruta y después da click en el botón rojo para ver los recorridos.
+</div>
+
+
+
+{{! Div del mapa }}
+<div class="container-fluid p-0 m-0">
+
+    <div class="card">
+        <h5 class="card-header">Mapa</h5>
+        <div class="card-body p-0 m-0">
+            <div class="" id="map">
+                {{! Script para el mapa }}
+                <script type="module" src="/js/trayectoRutas.js"></script>
+            </div>
+        </div>
+    </div>
+
+</div>

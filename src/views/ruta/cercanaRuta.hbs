@@ -1,0 +1,128 @@
+<head>
+    {{!-- Leaflet CSS y JS --}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+
+    {{!-- Geocoder --}}
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+        type="text/css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.0/MarkerCluster.Default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+
+    <script defer src="/js/botones.js"></script>
+
+</head>
+
+<button class="btn-scroll" id="btnArriba">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<a href="#map" class="btn btn-success btn-mapa bi bi-map" id="btnMapa"></a>
+
+<div class="container-fluid text-justify">
+    {{! Info de la pagina }}
+    <div class="accordion mt-3" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h5 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button text-bg-warning collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#info" aria-expanded="false" aria-controls="info">
+                    Ruta cercana
+                </button>
+            </h5>
+            <div id="info" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body bg-info bg-opacity-50 border border-info rounded-bottom">
+                    <p>Aquí podrás consultar cuales rutas te pueden dejar en el lugar
+                        donde deseas del
+                        <strong>Sistema de Transporte Público de Irapuato. 🍓</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{! Ubicación }}
+    <div class="container-fluid p-2 mt-3 mb-3 bg-dark bg-opacity-75 shadow text-white rounded">
+        <div class="row text-center">
+            <div class="col-md col-12">
+                <label for="coordUsuario" class="form-label text-center"><i
+                        class="bi bi-person me-3"></i>Usuario</label>
+
+                <div id="usuario" class="adjust-center"></div>
+
+                {{!-- <input class="form-control" id="coordUsuario" placeholder="Coordenadas [lat,lng]" /> --}}
+            </div>
+
+            <div class="col-md col-12 mt-2 m-md-0">
+                <label for="coordDestino" class="form-label text-center"><i class="bi bi-geo me-3"></i>Destino</label>
+                <div id="destino" class="adjust-center"></div>
+                {{!-- <input class="form-control" id="coordDestino" placeholder="Coordenadas [lat,lng]" /> --}}
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center pt-3" id="divBuscar">
+            <button class="btn btn-primary m-2" type="button" id="buscar"> <i
+                    class="bi bi-search me-3"></i>Buscar</button>
+            <button class="btn btn-primary m-2" type="button" id="ubicacion"> <i class="bi bi-geo-fill"></i> Mi
+                ubicación</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalRutas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title fs-5" id="titulo"></h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="cuerpoModal">
+                <ul class="list-group list-group-flush" id="lista">
+                </ul>
+            </div>
+            <div class="modal-footer bg-info text-white">
+                <i class="bi bi-info-circle" id="pieModal"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="modalEspera" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body adjust-center">
+                <img src="../img/cargando.gif" class="cargando" alt=""> Cargando
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{{! Mapa }}
+<div class="container-fluid p-0 m-0">
+    <div class="card">
+        <h5 class="card-header">Mapa</h5>
+        <div class="card-body p-0 m-0">
+            <div class="" id="map">
+                {{! Script para el mapa }}
+                <script type="module" src="/js/cercanaRuta.js"></script>
+            </div>
+        </div>
+    </div>
+</div>

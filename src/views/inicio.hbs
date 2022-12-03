@@ -1,0 +1,103 @@
+{{!-- Carrusel de imágenes --}}
+<div id="carruselImg" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../img/irapuato-1.jpg" class="d-md-none carrusel-moviles" alt="autobuses-irapuato-1">
+            <img src="../img/irapuato-1.jpg" class="d-none d-md-block mx-auto carrusel-escritorio"
+                alt="autobuses-irapuato-1">
+        </div>
+        <div class="carousel-item">
+            <img src="../img/irapuato-3.jpg" class="d-md-none carrusel-moviles" alt="autobuses-irapuato-2">
+            <img src="../img/irapuato-3.jpg" class="d-none d-md-block mx-auto carrusel-escritorio"
+                alt="autobuses-irapuato-2">
+        </div>
+        <div class="carousel-item">
+            <img src="../img/irapuato-2.jpg" class="d-md-none carrusel-moviles" alt="autobuses-irapuato-3">
+            <img src="../img/irapuato-2.jpg" class="d-none d-md-block mx-auto carrusel-escritorio"
+                alt="autobuses-irapuato-3">
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carruselImg" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carruselImg" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+
+    {{!-- <div class="txtImgCenter text-white text-center w-75 opacity-75 fs-5 fw-bold">Aplicación Web sobre el
+        Transporte
+        de Irapuato</div> --}}
+</div>
+
+
+<div class="container-fluid">
+    <div class="row adjust-center">
+
+        {{!-- Card de trayecto --}}
+        <div class="col-lg-4 p-3 pt-0">
+            <div class="adjust-center p-lg-2 p-4">
+                <img src="../img/trayect.png" class="w-50" alt="horario">
+            </div>
+            <div class="rounded row g-0 adjust-center text-center">
+
+                <div class="card col-lg-8 shadow-lg">
+                    <p class="card-header p-3 fw-bold">Observa en un mapa el trayecto de las rutas</p>
+                    <div class="card-body ">
+                        <p class="card-text p-1">Puedes ver el recorrido que realiza
+                            cada una de las rutas cargadas en nuestra base de datos. ​💾</p>
+                        <div class="adjust-center">
+                            <a class="btn btn-primary w-50" href="/trayecto" role="button">Trayectos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- Card de horarios --}}
+        <div class="col-lg-4 p-3">
+            <div class="adjust-center p-lg-2 p-4">
+                <img src="../img/schedule.png" class="w-50" alt="horario">
+            </div>
+            <div class="rounded row g-0 adjust-center text-center">
+
+                <div class="card col-lg-8 shadow-lg">
+                    <p class="card-header p-3 fw-bold">Consulta los horarios de las rutas que actualmente
+                    </p>
+                    <div class="card-body">
+                        <p class="card-text p-1 ">Conoce el horario de inicio y fin de las rutas que están
+                            cargadas
+                            actualmente. ⌚
+                        </p>
+                        <div class="adjust-center">
+                            <a class="btn btn-primary w-50" href="/horarios" role="button">Horarios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- Card de ruta cercana --}}
+        <div class="col-lg-4 p-3">
+            <div class=" adjust-center p-lg-2 p-4">
+                <img src="../img/bus.png" class="w-50" alt="bus">
+            </div>
+            <div class="rounded row g-0 adjust-center text-center">
+
+                <div class="card col-lg-8 shadow-lg">
+                    <p class="card-header p-3 fw-bold">Busca una ruta cercana que te pueda llevar a tu
+                        destino</p>
+                    <div class="card-body">
+                        <p class="card-text p-1">Concede permisos al sitio para obtener tu ubicación y
+                            seleccciona en el mapa a donde quieres ir. 🚍</p>
+                        <div class="adjust-center">
+                            <a class="btn btn-primary w-50" href="/cercana" role="button">Rutas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

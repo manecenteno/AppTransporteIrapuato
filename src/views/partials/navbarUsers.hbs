@@ -1,0 +1,86 @@
+<header class="navbar navbar-expand-md sticky-top color-navbar fw-bold ">
+    <nav class="container-lg rounded-2" aria-label="Main navigation">
+
+        <!--Boton menu desplegable para moviles-->
+        <button class="navbar-toggler p-2 border-light text-white" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#bdNavbar" aria-controls="staticBackdrop">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <!--Marca-->
+        <a class="navbar-brand p-0 me-md-2 text-white" href="/" aria-label="ATI">
+            <i class="bi bi-truck-front my-1"></i>
+            <span class="fw-bold">ATI🍓</span>
+        </a>
+
+        <!--Menu-->
+        <div class="offcanvas w-75 offcanvas-start text-bg-dark  text-white" tabindex="-1" id="bdNavbar">
+
+            <!--Encabezado del offcanvas-->
+            <div class="offcanvas-header  color-navbar">
+                <h5 class="offcanvas-title" id="bdNavbarOffcanvasLabel">
+                    Menú
+                </h5>
+                <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas" aria-label="Close"
+                    data-bs-target="#bdNavbar"></button>
+            </div>
+
+            <!--Cuerpo del offcanvas-->
+            <div class="offcanvas-body p-0">
+
+                <ul class="navbar-nav bd-navbar-nav w-100">
+
+                    <li class="nav-item col mt-4 m-md-auto rounded-bottom text-white">
+                        <a href="/" class="nav-link adjust-center link" id="btnInicio">
+                            <i class="bi bi-house-door me-1"></i>
+                            Inicio
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item col mt-4 m-md-auto rounded-bottom">
+                        <a href="/trayecto" class="nav-link adjust-center link">
+                            <i class="bi bi-signpost-split me-1"></i>
+                            Trayecto
+                        </a>
+                    </li>
+
+                    <li class="nav-item col mt-4 m-md-auto rounded-bottom">
+                        <a href="/horarios" class="nav-link adjust-center link fw-bold">
+                            <i class="bi bi-alarm me-1"></i>
+                            Horarios
+                        </a>
+                    </li>
+
+                    <li class="nav-item col mt-4 m-md-auto rounded-bottom ">
+                        <a href="/cercana" class="nav-link adjust-center link ">
+                            <i class="bi bi-pin-map me-1"></i>
+                            Ruta cercana
+                        </a>
+                    </li>
+                </ul>
+
+
+                <hr class="d-md-none text-white" />
+
+
+                <!--Contacto en offcanvas para moviles-->
+                <ul class="navbar-nav flex-row flex-wrap d-md-none">
+
+                    <li class="nav-item col-12 adjust-center">
+                        <a class="btn btn-outline-warning btn-floating m-1 w-75" href="#!" role="button">
+                            <i class="bi bi-share"> Compartir</i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item col-12 adjust-center ">
+                        <a class="btn btn-outline-warning btn-floating m-1 w-75" href="#!" role="button">
+                            <i class="bi bi-code-slash"> Acerca de</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+</header>

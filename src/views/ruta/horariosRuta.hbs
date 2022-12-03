@@ -1,0 +1,86 @@
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css" />
+    <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script>
+</head>
+
+<div class="container-fluid text-justify">
+
+    {{!-- Info de la pagina --}}
+    <div class="accordion pt-3" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h5 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button fs-10 text-bg-warning collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseOne">
+                    Horarios de las rutas
+                </button>
+            </h5>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body bg-info bg-opacity-50 border border-info rounded-bottom fs-10">
+                    <p>Aquí podrás consultar el horario de cada ruta del
+                        <strong>Sistema de Transporte Público de Irapuato. 🍓</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- Seleccion de las rutas --}}
+    <div class="mb-3 bg-info bg-opacity-25 border border-info rounded p-2 mt-3 text-light">
+        <label for="listaRutas">Selecciona la ruta:</label>
+        <div class="input-group mt-2 mb-3" id="preSelect">
+            <select name="listaRutas" class="form-select w-100" id="listaRutas">
+                <option value="">Buscar las rutas</option>
+                {{#each rutas}}
+                <option value="{{nombre}}">{{numero}} {{nombre}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+
+    {{!-- --}}
+    <div class="row p-3 adjust-center text-center visually-hidden" id="horarios">
+        <div class="col-md-4 me-md-4">
+            <div class="card ida shadow-lg">
+                <h5 class="card-header" id="ida"></h5>
+                <div class="card-body">
+                    <p class="card-text" id="ips"></p>
+                    <p class="card-text" id="is"></p>
+                    <p class="card-text" id="ifs"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mt-3 mt-md-0 mb-3 mb-md-0">
+            <div class="card vuelta shadow-lg">
+                <h5 class="card-header" id="vuelta"></h5>
+                <div class="card-body">
+                    <p class="card-text" id="vps"></p>
+                    <p class="card-text" id="vis"></p>
+                    <p class="card-text" id="vfs"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {{!-- Tabla del horario --}}
+    <div id="divHorario" class="d-none">
+        <table class="table table-hover table-striped table-dark text-center" id="horarios">
+            <thead>
+                <tr>
+                    <th scope="col" class="col align-middle">Salida</th>
+                    <th scope="col" class="col align-middle">Primer servicio</th>
+                    <th scope="col" class="col align-middle">Intervalo del servicio</th>
+                    <th scope="col" class="col align-middle">Último servicio</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<script src="/js/horarioRutas.js"></script>

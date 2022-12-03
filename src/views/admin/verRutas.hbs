@@ -1,0 +1,41 @@
+{{! Titulo y boton añadir }}
+<div class="container-fluid">
+    <div class="row p-3 text-center">
+        <div class="col adjust-center">
+            <h5 class="text-white">Todas las rutas</h5>
+        </div>
+
+        <div class="col">
+            <a href="/anadir-ruta" class="btn btn-success align-middle">
+                <i class="bi bi-plus"></i>
+                Añadir nueva ruta
+            </a>
+        </div>
+    </div>
+</div>
+
+
+{{! Tabla de rutas }}
+<div class="container-fluid text-center align-middle p-md-5 pt-md-0">
+    <table class="table table-hover table-striped table-dark">
+        <thead>
+            <tr class="">
+                <th scope="col" class="col-2 align-middle">#</th>
+                <th scope="col" class="col-7 align-middle">Nombre de la ruta</th>
+                <th scope="col" class="col-3 align-middle">Acciones</th>
+            </tr>
+        </thead>
+
+        {{#each rutas}}
+        <tbody>
+            <td scope="row" class="align-middle">{{numero}}</td>
+            <td scope="row" class="align-middle">{{nombre}}</td>
+            <td>
+                <a href="/editar-ruta/{{_id}}" class="btn btn-primary m-2">Editar</a>
+                <a href="/eliminar-ruta/{{_id}}" class="btn btn-danger m-2">Eliminar</a>
+            </td>
+        </tbody>
+        {{/each}}
+
+    </table>
+</div>

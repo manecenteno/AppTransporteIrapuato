@@ -1,0 +1,40 @@
+{
+  "name": "app-web-sistema-transporte-irapuato",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js --exec babel-node",
+    "build": "babel src -d dist && ncp src/views dist/views && ncp src/public dist/public",
+    "start": "node dist/index.js",
+    "dep": "npm install dotenv express express-handlebars mongoose @babel/runtime passport passport-local",
+    "depdev": "npm install -D @babel/cli @babel/core @babel/node @babel/preset-env @babel/plugin-transform-runtime ncp nodemon"
+  },
+  "keywords": [],
+  "author": "José Manuel Centeno Montesinos",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.7.2",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.2",
+    "@babel/node": "^7.20.2",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.20.2",
+    "ncp": "^2.0.0",
+    "nodemon": "^2.0.20"
+  },
+  "comments": {
+    "dep": "npm install dotenv express express-handlebars mongoose @babel/runtime passport passport-local",
+    "depdev": "npm install -D @babel/cli @babel/core @babel/node @babel/preset-env @babel/plugin-transform-runtime ncp nodemon",
+    "MONGODB_URI": "mongodb+srv://mxnx:Manolo16@cluster0.y3mg3ud.mongodb.net/?retryWrites=true&w=majority"
+  }
+}
