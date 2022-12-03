@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js --exec babel-node",
     "build": "babel src -d dist && ncp src/views dist/views && ncp src/public dist/public",
-    "start": "node dist/index.js",
-    "dep": "npm install dotenv express express-handlebars mongoose @babel/runtime passport passport-local",
-    "depdev": "npm install -D @babel/cli @babel/core @babel/node @babel/preset-env @babel/plugin-transform-runtime ncp nodemon"
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "José Manuel Centeno Montesinos",
